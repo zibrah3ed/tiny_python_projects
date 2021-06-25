@@ -42,6 +42,10 @@ def test_consonant():
 
 
 # --------------------------------------------------
+def test_sideboard():
+    '''Larboard or Starboard'''
+    
+    out = getoutput(f'{prg} ')
 def test_consonant_upper():
     """brigantine -> a Brigatine"""
 
@@ -66,3 +70,11 @@ def test_vowel_upper():
     for word in vowel_words:
         out = getoutput(f'{prg} {word.upper()}')
         assert out.strip() == template.format('an', word.upper())
+
+
+def test_matchcase():
+    '''Apple -> An Apple'''
+
+    for word in vowel_words:
+        out = getoutput(f'{prg} {word.capitalize()}')
+        assert out.strip() == template.format('An', word.capitalize())
